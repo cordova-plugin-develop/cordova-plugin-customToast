@@ -1,0 +1,21 @@
+<?xml version='1.0' encoding='utf-8'?>
+<plugin id="cordova-plugin-toast" version="0.0.2" 
+	xmlns="http://apache.org/cordova/ns/plugins/1.0" 
+	xmlns:android="http://schemas.android.com/apk/res/android">
+	<name>ToastPlugin</name>
+	<!-- 插件描述 -->
+    <description>Description</description>
+	<js-module name="CustomToast" src="www/toast.js">
+		<clobbers target="myToast" />
+	</js-module>
+	<platform name="android">
+		<config-file parent="/*" target="res/xml/config.xml">
+			<feature name="CustomToast">
+				<param name="android-package" value="org.apache.cordova.toast.CustomToast" />
+			</feature>
+		</config-file>
+		<config-file parent="/*" target="AndroidManifest.xml">
+		</config-file>
+		<source-file src="src/android/CustomToast.java" target-dir="src/org/apache/cordova/toast" />
+	</platform>
+</plugin>
